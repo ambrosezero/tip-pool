@@ -1,25 +1,32 @@
 
 describe("Servers test (with setup and tear-down)", function () {
-  beforeAll(function () {
-    // initialization logic
-    serverNameInput.value = 'Alice';
-  });
+
+  it('Should not execute if serverName is not filled out', function () {
+    let serverName = "";
+    submitServerInfo();
+    expect(allServers).toEqual({});
+  })
+
 
   it('should add a new server to allServers on submitServerInfo()', function () {
+    serverNameInput.value = 'Alice';
     submitServerInfo();
 
     expect(Object.keys(allServers).length).toEqual(1);
     expect(allServers['server' + serverId].serverName).toEqual('Alice');
   });
-  // ????? the following fails for unclear reasons. error message says "expected '' not to be ''  "
-  // ?????  
+
+
   it('should add a table row to #serverTable element', function () {
-    // tests updateServerTable() ;
+    serverNameInput.value = 'Alice';
+    submitServerInfo();
     expect(serverTbody.innerHTML).not.toBe("");
+    // tests updateServerTable() ;
   })
   // ????? is it ok to use afterAll() instead of afterEach()
-  afterAll(function () {
+  afterEach(function () {
     serverTbody.innerHTML = "";
+    serverId = 0
     allServers = {};
   });
 
