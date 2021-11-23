@@ -1,4 +1,5 @@
-
+// ????? it has become evident that numerous refreshes are necessary to ensure proper
+//        teardown, as jasmine runs in random order. is there a way around this?
 describe("Servers test (with setup and tear-down)", function () {
 
   it('Should not execute if serverName is not filled out', function () {
@@ -18,12 +19,11 @@ describe("Servers test (with setup and tear-down)", function () {
 
 
   it('should add a table row to #serverTable element', function () {
+    // tests updateServerTable() ;
     serverNameInput.value = 'Alice';
     submitServerInfo();
     expect(serverTbody.innerHTML).not.toBe("");
-    // tests updateServerTable() ;
   })
-  // ????? is it ok to use afterAll() instead of afterEach()
   afterEach(function () {
     serverTbody.innerHTML = "";
     serverId = 0

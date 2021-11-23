@@ -75,15 +75,42 @@ describe('createCurPayment() tests', function () {
 describe('appendPaymentTable()', function () {
 
     it('should add a new tr to paymentTbody', function () {
-
+        billAmtInput.value = 30;
+        tipAmtInput.value = 10;
+        // let testItem = createCurPayment(); 
+        submitPaymentInfo();
+        expect(paymentTbody.innerHTML).not.toBe('')
     })
-
+    afterEach(function () {
+        let testItem = '';
+        billAmtInput.value = '';
+        tipAmtInput.value = '';
+        allPayments = {};
+        paymentTbody.innerHTML = '<tbody></tbody>';
+        summaryTds[0].innerHTML = '';
+        summaryTds[1].innerHTML = '';
+        summaryTds[2].innerHTML = '';
+        paymentId = 0;
+    })
 })
 
 describe('updateSummary()', function () {
 
     it('should fill in all 3 summary tds', function () {
-
+        billAmtInput.value = 30;
+        tipAmtInput.value = 10;
+        submitPaymentInfo();
+        expect(summaryTds[0]).not.toBe('');
     })
-
+    afterEach(function () {
+        let testItem = '';
+        billAmtInput.value = '';
+        tipAmtInput.value = '';
+        allPayments = {};
+        paymentTbody.innerHTML = '<tbody></tbody>';
+        summaryTds[0].innerHTML = '';
+        summaryTds[1].innerHTML = '';
+        summaryTds[2].innerHTML = '';
+        paymentId = 0;
+    })
 })
