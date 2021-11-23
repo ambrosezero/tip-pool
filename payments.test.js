@@ -77,7 +77,6 @@ describe('appendPaymentTable()', function () {
     it('should add a new tr to paymentTbody', function () {
         billAmtInput.value = 30;
         tipAmtInput.value = 10;
-        // let testItem = createCurPayment(); 
         submitPaymentInfo();
         expect(paymentTbody.innerHTML).not.toBe('')
     })

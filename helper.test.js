@@ -27,7 +27,6 @@ describe('sumPaymentTotal()', function () {
 
 describe('calculateTipPercent()', function () {
     it('should convert billAmt and tipAmt into a tip percentage', function () {
-        // let testItem = calculateTipPercent(100, 23)
         expect(calculateTipPercent(100, 23)).toEqual(23)
     })
     afterEach(function () {
